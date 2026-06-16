@@ -57,13 +57,11 @@ export default {
 </script>
 
 <style>
-/* 背景容器 */
 .screen-bg {
   position: relative;
   min-height: 100vh;
 }
 
-/* 背景放到固定定位的伪元素，让毛玻璃有东西可以"透过" */
 .screen-bg::before {
   content: '';
   position: fixed;
@@ -76,7 +74,6 @@ export default {
   pointer-events: none;
 }
 
-/* 顶部导航栏毛玻璃 */
 .q-header.glass-header {
   background: rgba(255, 255, 255, 0.55) !important;
   backdrop-filter: blur(24px) saturate(180%) !important;
@@ -86,7 +83,6 @@ export default {
   transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* 左侧侧边栏毛玻璃 */
 .q-drawer.glass-drawer {
   background: rgba(255, 255, 255, 0.4) !important;
   backdrop-filter: blur(24px) saturate(160%) !important;
@@ -95,20 +91,10 @@ export default {
   box-shadow: 4px 0 24px rgba(0, 0, 0, 0.04);
 }
 
-/* 页面切换动画 */
 .fade-transform-enter-active,
 .fade-transform-leave-active {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
-.fade-transform-enter-from {
-  opacity: 0;
-  transform: translateY(12px);
-}
-.fade-transform-leave-to {
-  opacity: 0;
-  transform: translateY(-12px);
-}
-</style>}
 .fade-transform-enter-from {
   opacity: 0;
   transform: translateY(12px);
