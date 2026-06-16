@@ -1,7 +1,6 @@
 <template>
   <q-layout view="lHh lPr lFf" class="auth-bg">
     
-    <!-- 光晕背景层，移到 layout 外部通过固定定位实现 -->
     <div class="glow-sphere glow-1"></div>
     <div class="glow-sphere glow-2"></div>
     <div class="glow-sphere glow-3"></div>
@@ -21,7 +20,7 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 /* 背景 */
 .auth-bg {
   position: relative;
@@ -31,7 +30,7 @@ export default {
   overflow: hidden;
 }
 
-/* 光晕气泡 - 用 fixed 定位确保在所有层下方可见 */
+/* 光晕气泡 */
 .glow-sphere {
   position: fixed;
   border-radius: 50%;
@@ -68,7 +67,7 @@ export default {
   animation: float-slow 20s ease-in-out infinite alternate;
 }
 
-/* 内容容器 - 确保在光晕上方 */
+/* 内容容器 */
 .auth-container {
   position: relative;
   z-index: 1;
@@ -79,8 +78,8 @@ export default {
 }
 
 /* 登录卡片毛玻璃 */
-:deep(.q-card),
-:deep(.auth-card) {
+.q-card,
+.auth-card {
   background: rgba(255, 255, 255, 0.45) !important;
   backdrop-filter: blur(30px) saturate(150%) !important;
   -webkit-backdrop-filter: blur(30px) saturate(150%) !important;
@@ -111,20 +110,5 @@ export default {
 @keyframes float-slow {
   0%   { transform: translate(0, 0) scale(1); }
   100% { transform: translate(25px, 20px) scale(1.08); }
-}
-</style>
-.auth-fade-enter-from {
-  opacity: 0;
-  transform: scale(0.96) translateY(10px); /* 伴随一点点缩放和位移 */
-}
-.auth-fade-leave-to {
-  opacity: 0;
-  transform: scale(0.98) translateY(-10px);
-}
-
-/* 慢速漂浮动画，让背景的光晕活起来 */
-@keyframes float-slow {
-  0% { transform: translate(0, 0) scale(1); }
-  100% { transform: translate(30px, 20px) scale(1.1); }
 }
 </style>
