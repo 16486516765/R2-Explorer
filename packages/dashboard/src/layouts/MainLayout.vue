@@ -56,14 +56,14 @@ export default {
 };
 </script>
 
-<style scoped>
+<style>
 /* 背景容器 */
 .screen-bg {
   position: relative;
   min-height: 100vh;
 }
 
-/* 关键修复：背景放到固定定位的伪元素，让毛玻璃有东西可以"透过" */
+/* 背景放到固定定位的伪元素，让毛玻璃有东西可以"透过" */
 .screen-bg::before {
   content: '';
   position: fixed;
@@ -73,10 +73,11 @@ export default {
     radial-gradient(ellipse at 20% 20%, rgba(100, 180, 255, 0.35) 0%, transparent 50%),
     radial-gradient(ellipse at 80% 80%, rgba(180, 140, 255, 0.25) 0%, transparent 50%),
     linear-gradient(135deg, #dce8f5 0%, #e8eaf6 50%, #d8ecd8 100%);
+  pointer-events: none;
 }
 
 /* 顶部导航栏毛玻璃 */
-.glass-header {
+.q-header.glass-header {
   background: rgba(255, 255, 255, 0.55) !important;
   backdrop-filter: blur(24px) saturate(180%) !important;
   -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
@@ -86,7 +87,7 @@ export default {
 }
 
 /* 左侧侧边栏毛玻璃 */
-.glass-drawer {
+.q-drawer.glass-drawer {
   background: rgba(255, 255, 255, 0.4) !important;
   backdrop-filter: blur(24px) saturate(160%) !important;
   -webkit-backdrop-filter: blur(24px) saturate(160%) !important;
@@ -99,6 +100,15 @@ export default {
 .fade-transform-leave-active {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.fade-transform-enter-from {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.fade-transform-leave-to {
+  opacity: 0;
+  transform: translateY(-12px);
+}
+</style>}
 .fade-transform-enter-from {
   opacity: 0;
   transform: translateY(12px);
